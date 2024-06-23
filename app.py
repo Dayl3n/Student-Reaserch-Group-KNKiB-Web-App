@@ -1,20 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template, redirect, url_for
 from flask_login import LoginManager, UserMixin, login_user
 from flask_sqlalchemy import SQLAlchemy
-from flask_mail import Mail, Message
 
 
-app = Flask(__name__)
+
+app = Flask(__name__, template_folder='templates')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///knkib.db'
 app.config['SECRET_KEY'] = 'MDbgI2k2YULy9C8SnJslH67IG5XE4iyY'
-app.config['Mail_SERVER'] = 'smtp.gmail.com'
-app.config['Mail_PORT'] = 465
-app.config['Mail_USERNAME'] = 'tak@gmail.com'
-app.config['Mail_PASSWORD'] = 'password'
-app.config['Mail_USE_TLS'] = False
-app.config['Mail_USE_SSL'] = True
-mail = Mail(app)
+
 
 
 login_manager = LoginManager()
@@ -65,7 +59,7 @@ class EventsMembers(db.Model):
 
 @app.route('/')
 def test():
-    return 'Hello World'
+    return render_template('index.html')
 
 @login_manager.user_loader
 def load_user(user_id):   
