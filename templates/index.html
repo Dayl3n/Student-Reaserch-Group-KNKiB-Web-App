@@ -4,36 +4,47 @@
 {%endblock%}
 
 {%block body%}
+<h2 id="hi" class="text-center align-self-center mb-5 mt-2">Zobaczcie co u nas!</h2>
 <div class="container justify-content-center">
-  <h2>Zobaczcie co u nas!</h2>
   <div class="row d-flex align-items-center">
-    <h4>Wycieczka do Rzeszowa</h4>
+    <h4 class="mb-3">Wycieczka do Rzeszowa</h4>
     <div class="col-sm-4">
-        <img src="{{url_for('static', filename='images/rzeszow.jpg')}}" style="width: 100%; height: 60%;">
+        <img src="{{url_for('static', filename='images/rzeszow.jpg')}}" style="width: 100%; height: 60%;" class="m-2">
       </div>
       <div class="col-sm-8">
-      <p>Wyjazd Koła Naukowego do Rzeszowa odbył się 3 czerwca. <br>Podczas wizyty na WSPiA:<br>Wzięliśmy udział w oględzinach miejsca zdarzenia <br>
-      Zaobserwowaliśmy działanie najnowocześniejszego sprzętu kryminalistycznego <br> Pogłębiliśmy swoją wiedzę na temat poligrafu, osmologii, daktyloskopii, <br>traseologii oraz procesu powstawania portretów pamięciowych <br>
-     Sprawdziliśmy swoje umiejętności podczas symulacji za pomocą gogli VR.</p>
+      <p>Wyjazd Koła Naukowego do Rzeszowa odbył się 3 czerwca. Podczas wizyty na WSPiA:<br>- Wzięliśmy udział w oględzinach miejsca zdarzenia <br>
+      - Zaobserwowaliśmy działanie najnowocześniejszego sprzętu kryminalistycznego <br> - Pogłębiliśmy swoją wiedzę na temat poligrafu, osmologii, daktyloskopii, <br>traseologii oraz procesu powstawania portretów pamięciowych <br>
+     - Sprawdziliśmy swoje umiejętności podczas symulacji za pomocą gogli VR.</p>
     </div>
     
   </div>
-  <div class="row">
-    <h4>Dołącz do nas!</h4>
-    <div class="col">
-        <h4>Cykl wykładów "Poszerzyć horyzonty"</h4>
+  <div class="row d-flex align-items-center">
+    <h4 class="mb-3 text-end">Dołącz do nas!</h4>
+    <div class="col-sm-8">
+      <p>Po ponad roku nieaktywności wracamy wraz z nowymi pomysłami orz zarządem! 
+      KNKiB AGH to nie tylko miejsce dla studentów Nowoczesnych Technologii w Kryminalistyce,
+    lecz także dla wszystkich zainteresowanych kryminalistyką, kryminologią oraz bezpieczeństwem. 
+  Kontynuowana będzie seria spotkań z ekspertami z obszaru działania KN. W planach również inne aktywności 
+oraz wyjazdy, o których już wkrótce będziemy informować! <br>
+Jednak Koło Naukowe to przede wszytskim osoby je tworzące. Dlatego chcemy również wam oddać głos.  Chcecie dołączyć do Koła?
+Macie pomysły na jego działalność? Gorąco zapraszamy do zapisu!</p>
     </div>
-    <div class="col">
-        <h4>Seria włamań na uczelni</h4>
+    <div class="col-sm-4">
+    <img src="{{url_for('static', filename='images/trup.jpg')}}" style="width: 100%; height: 60%;"  class="m-2">
     </div>
-
+    
   </div>
-  <div class="row">
-    <div class="col">
-
+  <div class="row d-flex align-items-center">
+    <h4 class="mb-3">Cykl wykładów "Poszerzyć horyzonty"</h4>
+    <div class="col-sm-4">
+      <img src="{{url_for('static', filename='images/wyklad.jpg')}}" style="width: 100%; height: 60%;" class="m-2">
     </div>
-    <div class="col">
-
+    <div class="col-sm-8">
+<p> 27 maja odbył się pierwszy po przerwie wykład z cyklu "Poszerzyć horyzonty" 
+Tematem wykładu było bezpieczeństwo kontrwywiadowcze Polski. 
+Dr Anna Grabowska-Siwiec, emerytowana major kontrwywiadu ABW i doktor nauk politycznych 
+omówiła obecne zagrożenia, o których głośno w mediach. A wszystko to 
+z perspektywy osoby, która ma zawodowe doświadczenie w tym zakresie.</p>
     </div>
 
   </div>
