@@ -1,55 +1,47 @@
 {%extends "base.html"%}
-{%block title%}
-<title>KNKIB</title>
+
+{%block head%}
+    <title>KNKiB</title>
 {%endblock%}
 
 {%block body%}
-<h2 id="hi" class="text-center align-self-center mb-5 mt-2">Zobaczcie co u nas!</h2>
-<div class="container justify-content-center">
-  <div class="row d-flex align-items-center">
-    <h4 class="mb-3">Wycieczka do Rzeszowa</h4>
-    <div class="col-sm-4">
-        <img src="{{url_for('static', filename='images/rzeszow.jpg')}}" style="width: 100%; height: 60%;" class="m-2">
-      </div>
-      <div class="col-sm-8">
-      <p>Wyjazd Koła Naukowego do Rzeszowa odbył się 3 czerwca. Podczas wizyty na WSPiA:<br>- Wzięliśmy udział w oględzinach miejsca zdarzenia <br>
-      - Zaobserwowaliśmy działanie najnowocześniejszego sprzętu kryminalistycznego <br> - Pogłębiliśmy swoją wiedzę na temat poligrafu, osmologii, daktyloskopii, <br>traseologii oraz procesu powstawania portretów pamięciowych <br>
-     - Sprawdziliśmy swoje umiejętności podczas symulacji za pomocą gogli VR.</p>
+<div class="image-section">
+    <div class="image-container left" id="image1">
+        <img src="{{url_for('static',filename='images/rzeszow.jpg')}}" alt="Image 1">
+        <div class="text-block">
+            <p>Podczas wizyty na WSPiA:<br>Wzięliśmy udział w oględzinach miejsca zdarzenia 
+              Zaobserwowaliśmy działanie najnowocześniejszego sprzętu kryminalistycznego. Pogłębiliśmy swoją wiedzę na temat poligrafu, osmologii, daktyloskopii, traseologii oraz procesu powstawania portretów pamięciowych 
+             Sprawdziliśmy swoje umiejętności podczas symulacji za pomocą gogli VR.</p>
+        </div>
     </div>
-    
-  </div>
-  <div class="row d-flex align-items-center">
-    <h4 class="mb-3 text-end">Dołącz do nas!</h4>
-    <div class="col-sm-8">
-      <p>Po ponad roku nieaktywności wracamy wraz z nowymi pomysłami orz zarządem! 
-      KNKiB AGH to nie tylko miejsce dla studentów Nowoczesnych Technologii w Kryminalistyce,
-    lecz także dla wszystkich zainteresowanych kryminalistyką, kryminologią oraz bezpieczeństwem. 
-  Kontynuowana będzie seria spotkań z ekspertami z obszaru działania KN. W planach również inne aktywności 
-oraz wyjazdy, o których już wkrótce będziemy informować! <br>
-Jednak Koło Naukowe to przede wszytskim osoby je tworzące. Dlatego chcemy również wam oddać głos.  Chcecie dołączyć do Koła?
-Macie pomysły na jego działalność? Gorąco zapraszamy do zapisu!</p>
+    <div class="image-container right" id="image2">
+        <div class="text-block">
+            <p>Po ponad roku nieaktywności wracamy wraz z nowymi pomysłami orz zarządem! 
+              KNKiB AGH to nie tylko miejsce dla studentów Nowoczesnych Technologii w Kryminalistyce,
+            lecz także dla wszystkich zainteresowanych kryminalistyką, kryminologią oraz bezpieczeństwem. 
+          Kontynuowana będzie seria spotkań z ekspertami z obszaru działania KN. W planach również inne aktywności 
+        oraz wyjazdy, o których już wkrótce będziemy informować!
+        Jednak Koło Naukowe to przede wszytskim osoby je tworzące. Dlatego chcemy również wam oddać głos.  Chcecie dołączyć do Koła?
+        Macie pomysły na jego działalność? Gorąco zapraszamy do zapisu!</p>
+        </div>
+        <img src="{{url_for('static',filename='images/trup.jpg')}}" alt="Image 2">
     </div>
-    <div class="col-sm-4">
-    <img src="{{url_for('static', filename='images/trup.jpg')}}" style="width: 100%; height: 60%;"  class="m-2">
+    <div class="image-container left" id="image3">
+        <img src="{{url_for('static',filename='images/wariograf.jpg')}}" alt="Image 3">
+        <div class="text-block">
+            <p>This is some text related to Image 3. It's a couple of lines long to give some context about the image.</p>
+        </div>
     </div>
-    
-  </div>
-  <div class="row d-flex align-items-center">
-    <h4 class="mb-3">Cykl wykładów "Poszerzyć horyzonty"</h4>
-    <div class="col-sm-4">
-      <img src="{{url_for('static', filename='images/wyklad.jpg')}}" style="width: 100%; height: 60%;" class="m-2">
+    <div class="image-container right" id="image4">
+        <div class="text-block">
+            <p>27 maja odbył się pierwszy po przerwie wykład z cyklu "Poszerzyć horyzonty" 
+              Tematem wykładu było bezpieczeństwo kontrwywiadowcze Polski. 
+              Dr Anna Grabowska-Siwiec, emerytowana major kontrwywiadu ABW i doktor nauk politycznych 
+              omówiła obecne zagrożenia, o których głośno w mediach. A wszystko to 
+              z perspektywy osoby, która ma zawodowe doświadczenie w tym zakresie.</p>
+        </div>
+        <img src="{{url_for('static',filename='images/wyklad.jpg')}}" alt="Image 4">
     </div>
-    <div class="col-sm-8">
-<p> 27 maja odbył się pierwszy po przerwie wykład z cyklu "Poszerzyć horyzonty" 
-Tematem wykładu było bezpieczeństwo kontrwywiadowcze Polski. 
-Dr Anna Grabowska-Siwiec, emerytowana major kontrwywiadu ABW i doktor nauk politycznych 
-omówiła obecne zagrożenia, o których głośno w mediach. A wszystko to 
-z perspektywy osoby, która ma zawodowe doświadczenie w tym zakresie.</p>
-    </div>
-
-  </div>
-</div> 
-      
- 
-
+</div>
+<!-- <script src="{{url_for('static',filename='scripts/script.js')}}"></script> -->
 {%endblock%}

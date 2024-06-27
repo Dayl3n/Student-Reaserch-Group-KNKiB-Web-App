@@ -1,35 +1,121 @@
-.navbar{
-    background-color: gray;
-}
-#bod{
-    background-color: gainsboro;
-    font-family: "Garamond";
-}
-
-p{
-    text-align: center;
-    font-size: larger;
-}
-
-.row{
-    border: 0.5em solid;
-    border-radius: 1em;
-    margin: 2em;
-    padding: 1em;
-    background-color: rgb(114, 210, 136);
-}
-
-h4{
-    font-weight: bold !important;
-}
-
-#hi{
-    background-color: aliceblue;
+#bd, html {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    
+    height: 100%;
 }
 
-#tytul{
-    font-weight: bold;
-    font-size: 2em;
+#bg{
+    box-sizing: border-box; 
+    display: block; 
+    width: 100%;  
+    height: 100%; 
+    padding: 0; 
+    margin: 0; 
 }
+
+#nvbr {
+    background-color: #f9f5f5;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5.5em;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 14px 20px;
+    display: block;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: #000;
+}
+
+.image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px; /* Adjust for fixed header height */
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    width: 50%; /* Adjust to accommodate both image and text */
+    height: 50%;
+    margin: 1em; 
+   
+}
+
+.image-container.left {
+    flex-direction: row;
+}
+
+.image-container.right {
+    flex-direction: row-reverse;
+}
+
+.image-container img {
+    width: 50%; /* Adjust width to leave space for text */
+    height: 100%;
+}
+
+.text-block {
+    width: 50%; /* Adjust width to leave space for image */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#logo{
+    width: 5em;
+    height: 5em;
+}
+
+
+
+@media all and (max-width: 1066px) {
+    .text-block{
+        width: 100%;
+    }
+    .image-container {
+        flex-direction: column;
+        width: 95%;
+        margin: 1em;
+        }
+    .image-container.left {
+        flex-direction: column;
+        }
+    .image-container.right {
+        flex-direction: column;
+        }
+
+    #butt{
+        font-size: 1em;
+        padding: 0.25em;
+
+    }
+   
+    }
