@@ -6,7 +6,7 @@
 
 {%block body%}
 <div class="image-section">
-    <div class="image-container left" id="image1">
+    <div class="image-container" id="image1">
         <img src="{{url_for('static',filename='images/rzeszow.jpg')}}" alt="Image 1">
         <div class="text-block">
             <p>Podczas wizyty na WSPiA:<br>Wzięliśmy udział w oględzinach miejsca zdarzenia 
@@ -14,7 +14,7 @@
              Sprawdziliśmy swoje umiejętności podczas symulacji za pomocą gogli VR.</p>
         </div>
     </div>
-    <div class="image-container right" id="image2">
+    <div class="image-container" id="image2">
         <div class="text-block">
             <p>Po ponad roku nieaktywności wracamy wraz z nowymi pomysłami orz zarządem! 
               KNKiB AGH to nie tylko miejsce dla studentów Nowoczesnych Technologii w Kryminalistyce,
@@ -26,13 +26,13 @@
         </div>
         <img src="{{url_for('static',filename='images/trup.jpg')}}" alt="Image 2">
     </div>
-    <div class="image-container left" id="image3">
+    <div class="image-container" id="image3">
         <img src="{{url_for('static',filename='images/wariograf.jpg')}}" alt="Image 3">
         <div class="text-block">
             <p>This is some text related to Image 3. It's a couple of lines long to give some context about the image.</p>
         </div>
     </div>
-    <div class="image-container right" id="image4">
+    <div class="image-container" id="image4">
         <div class="text-block">
             <p>27 maja odbył się pierwszy po przerwie wykład z cyklu "Poszerzyć horyzonty" 
               Tematem wykładu było bezpieczeństwo kontrwywiadowcze Polski. 
@@ -43,5 +43,21 @@
         <img src="{{url_for('static',filename='images/wyklad.jpg')}}" alt="Image 4">
     </div>
 </div>
+<div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </footer>
+  </div>
 <!-- <script src="{{url_for('static',filename='scripts/script.js')}}"></script> -->
 {%endblock%}

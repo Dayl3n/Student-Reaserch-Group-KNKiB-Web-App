@@ -1,4 +1,4 @@
-#blok{
+#blok, #reg{
     width: 30%;
     justify-content: center;
     display: flex;
@@ -17,10 +17,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    height: 100%;
 }
 
 @media all and (max-width: 1066px){
-    #blok{
+    #blok, #reg{
         width: 85%;
     }
 

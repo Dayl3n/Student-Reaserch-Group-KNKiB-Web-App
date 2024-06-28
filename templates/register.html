@@ -3,6 +3,8 @@
 
 {%block head%}
 <title>Zarejestruj się</title>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/stylelogin.css') }}">
+
 {%endblock%}
 
 {%block body%}
@@ -14,11 +16,11 @@
         {% endif %}
     {% endwith %}
 
-    <div class="d-block">
+    <div class="d-block" id="reg">
 
         <form action="" method="post">
             {{form.hidden_tag()}}
-            <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Zarejestruj się</h1>
             <p>
                 {{form.username.label(class="sr-only")}}
                 {{form.username(class="form-control")}}
