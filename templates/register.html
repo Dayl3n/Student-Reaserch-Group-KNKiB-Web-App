@@ -1,0 +1,43 @@
+{%extends "base.html"%}
+
+
+{%block head%}
+<title>Zarejestruj się</title>
+{%endblock%}
+
+{%block body%}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="d-block">
+
+        <form action="" method="post">
+            {{form.hidden_tag()}}
+            <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+            <p>
+                {{form.username.label(class="sr-only")}}
+                {{form.username(class="form-control")}}
+            </p>
+            <p>
+                {{form.mail.label(class="sr-only")}}
+                {{form.mail(class="form-control")}}
+            </p>
+            <p>
+                {{form.password.label(class="sr-only")}}
+                {{form.password(class="form-control")}}
+            </p>
+            <p>
+                {{form.submit(class="btn btn-success")}}
+            </p>
+        </form>
+        
+        <p class="d-flex">
+            {{error_text}}
+        </p>
+    </div>
+{%endblock%}

@@ -1,0 +1,49 @@
+{%extends "base.html"%}
+
+
+{%block head%}
+<title>Zaloguj się</title>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/stylelogin.css') }}">
+{%endblock%}
+
+
+
+{%block body%}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="d-block" id="blok" >
+
+        <form action="" method="post">
+            {{form.hidden_tag()}}
+            <h1 class="h3 mb-3 font-weight-normal">Zaloguj się</h1>
+            <p>
+                {{form.username.label(class="sr-only")}}
+                {{form.username(class="form-control", value = username if username is not none)}}
+            </p>
+            
+            <p>
+                {{form.password.label(class="sr-only")}}
+                {{form.password(class="form-control")}}
+            </p>
+            <p>
+                {{form.remember.label()}}
+                {{form.remember()}}
+            </p>
+            <p>
+                {{form.submit(class="btn btn-success")}}
+                <a href="{{url_for('auth.register_view')}}" class="btn btn-secondary">Rejestracja</a>       
+            </p>
+        </form>
+        
+        <p>
+            {{error_text}}
+        </p>
+        
+    </div>
+{%endblock%}
