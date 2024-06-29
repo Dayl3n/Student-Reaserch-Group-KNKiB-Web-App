@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>KNKiB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylelogin.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div class="d-block" id="blok">
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <h1 class="h3 mb-3 font-weight-normal">Dodaj Post</h1>
+            <p>
+                {{ form.title.label(class="sr-only") }}
+                {{ form.title(class="form-control") }}
+            </p>
+            <p>
+                {{ form.description.label(class="sr-only") }}
+                {{ form.description(class="form-control") }}
+            </p>
+            <p>
+                {{ form.image.label(class="sr-only") }}
+                {{ form.image(class="form-control") }}
+            </p>
+            <p>
+                {{ form.submit(class="btn btn-success") }}
+            </p>
+        </form>
+
+        <p>
+            {{ error_text }}
+        </p>
+
+    </div>
+{% endblock %}

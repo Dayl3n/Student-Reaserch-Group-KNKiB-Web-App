@@ -1,17 +1,20 @@
 {%extends "base.html"%}
 
 {%block head%}
-    <title>KNKiB</title>
+    <title>KNKiB</title>  
 {%endblock%}
 
 {%block body%}
 <div class="image-section">
     <div class="image-container left" id="image1">
-        <img src="{{url_for('static',filename='images/rzeszow.jpg')}}" alt="Image 1">
+        <img src="{{url_for('static',filename='images/' ~image1)}}" alt="Image 1">
         <div class="text-block">
-            <p>Podczas wizyty na WSPiA:<br>Wzięliśmy udział w oględzinach miejsca zdarzenia 
+            <h1>{{posts[0].title}}</h1>
+            <p>{{posts[0].content}}</p> 
+            <p>{{'images/~image1'}}</p>
+            <!-- <p>Podczas wizyty na WSPiA:<br>Wzięliśmy udział w oględzinach miejsca zdarzenia 
               Zaobserwowaliśmy działanie najnowocześniejszego sprzętu kryminalistycznego. Pogłębiliśmy swoją wiedzę na temat poligrafu, osmologii, daktyloskopii, traseologii oraz procesu powstawania portretów pamięciowych 
-             Sprawdziliśmy swoje umiejętności podczas symulacji za pomocą gogli VR.</p>
+             Sprawdziliśmy swoje umiejętności podczas symulacji za pomocą gogli VR.</p> -->
         </div>
     </div>
     <div class="image-container right" id="image2">
