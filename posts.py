@@ -78,3 +78,8 @@ def delete_post(post_id):
     app.db.session.delete(Post_to_delete)
     app.db.session.commit()
     return redirect(url_for('AdminPanel'))
+
+@posts_bp.route('/archiwum', methods=['GET', 'POST'])
+def Archiwum():
+    posts = app.Post.query.filter(app.Post.id <= app.Post.query.count())
+    return render_template('archiwum.html', posts=posts)

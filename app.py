@@ -70,7 +70,7 @@ class Post(db.Model):
 
 @app.route('/')
 def start():
-    posts = Post.query.order_by(Post.id.desc()).limit(3).all()
+    posts = Post.query.order_by(Post.id.desc()).limit(4).all()
     if current_user.is_authenticated:
         if current_user.role == 'admin':
             return render_template('index.html',posts=posts, admin=True)
@@ -79,7 +79,7 @@ def start():
     return render_template('index.html',posts=posts)
 
 @app.route('/about')
-def test1():
+def aboutus():
     return render_template('about.html')
 
 @login_manager.user_loader
@@ -116,6 +116,8 @@ def tasks():
         return redirect(url_for('tasks.tasksAdmin'))
     else:
         return redirect(url_for('tasks.tasks'))
+    
+
 
 
 # @app.route('/dropTable')

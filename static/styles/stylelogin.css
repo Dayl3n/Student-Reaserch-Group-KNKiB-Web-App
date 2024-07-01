@@ -11,6 +11,15 @@
     padding: 1em;     
 }
 
+#blok2{
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: auto;
+
+}
+
 #bg{
     height: 100%;
     display: flex;
