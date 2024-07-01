@@ -7,11 +7,10 @@
 {%block body%}
 <div class="image-section">
     <div class="image-container left" id="image1">
-        <img src="{{url_for('static',filename='images/' ~image1)}}" alt="Image 1">
+        <img src="{{url_for('static',filename='images/' ~posts[0].image_name)}}" alt="Image 1">
         <div class="text-block">
             <h1>{{posts[0].title}}</h1>
             <p>{{posts[0].content}}</p> 
-            <p>{{'images/~image1'}}</p>
             <!-- <p>Podczas wizyty na WSPiA:<br>Wzięliśmy udział w oględzinach miejsca zdarzenia 
               Zaobserwowaliśmy działanie najnowocześniejszego sprzętu kryminalistycznego. Pogłębiliśmy swoją wiedzę na temat poligrafu, osmologii, daktyloskopii, traseologii oraz procesu powstawania portretów pamięciowych 
              Sprawdziliśmy swoje umiejętności podczas symulacji za pomocą gogli VR.</p> -->

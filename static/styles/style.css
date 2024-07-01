@@ -12,6 +12,10 @@
     margin: 0; 
 }
 
+table{
+    margin-top: 6em;
+}
+
 #nvbr {
     background-color: #f9f5f5;
     border-bottom: 1px solid #ccc;

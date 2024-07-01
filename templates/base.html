@@ -43,14 +43,15 @@
             <a class="nav-link" href="#">Archiwum</a>
           </li>
           {%if current_user.is_authenticated%}
+          {%if admin%}
           <li class="nav-item">
-            <a class="nav-link" href="#">Zadania</a>
+            <a class="nav-link" href="{{url_for('AdminPanel')}}">Panel Admina</a>
           </li>
-            {%if admin%}
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('posts.posts')}}">Zarządzanie postami</a>
-            </li>
-            {%endif%}
+          {%else%}
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('tasks')}}">Zadania</a>
+          </li>
+          {%endif%}
           {%endif%}
         </ul>
       </div>
