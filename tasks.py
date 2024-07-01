@@ -37,11 +37,9 @@ def role_required(role):
 @tasks_bp.route('/tasks', methods=['GET', 'POST'])
 @role_required('user')
 def tasks():
-    is_Update_on = False
     tasks = app.Task.query.filter_by(user_id=current_user.id).all()
     form = TaskForm(prefix='form')
     if form.validate_on_submit() and form.submit.data:
-        flash(current_user.id)
         new_task = app.Task(title=form.title.data, description=form.description.data, deadline=form.deadline.data, user_id=current_user.id)
         app.db.session.add(new_task)
         app.db.session.commit()
