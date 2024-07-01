@@ -71,15 +71,12 @@ class Post(db.Model):
 @app.route('/')
 def start():
     posts = Post.query.order_by(Post.id.desc()).limit(3).all()
-    image1 = posts[0].image_name
-
     if current_user.is_authenticated:
-        user = User.query.filter_by(id=current_user.id).first()
-        if user.role == 'admin':
-            return render_template('index.html',posts=posts, image1=image1, admin=True)
+        if current_user.role == 'admin':
+            return render_template('index.html',posts=posts, admin=True)
         else:
             return render_template('index.html',posts=posts, admin=False)
-    return render_template('index.html',posts=posts, image1=image1)
+    return render_template('index.html',posts=posts)
 
 @app.route('/about')
 def test1():
@@ -88,6 +85,10 @@ def test1():
 @login_manager.user_loader
 def load_user(user_id):   
     return User.query.get(int(user_id))
+
+@app.route('/AdminPanel', methods=['GET', 'POST'])
+def AdminPanel():
+    return render_template('AdminPanel.html')
 
 
 @app.route('/logout')
@@ -108,7 +109,13 @@ def update_user(user_id):
         return f'Użytkownik o ID {user_id} nie istnieje.'
     
 
-
+@app.route('/task', methods=['GET', 'POST'])
+@login_required
+def tasks():
+    if(current_user.role == 'admin'):
+        return redirect(url_for('tasks.tasksAdmin'))
+    else:
+        return redirect(url_for('tasks.tasks'))
 
 
 # @app.route('/dropTable')

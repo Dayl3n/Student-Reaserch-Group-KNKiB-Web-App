@@ -37,11 +37,7 @@ def index():
         user = app.User.query.filter_by(username=form.username.data).first()
         if user and check_password_hash(user.password, form.password.data):
             login_user(user,remember=True)
-            if user.role == 'admin':
-                admin = True
-            else:
-                admin = False
-            response = make_response(redirect('/'))
+            response = make_response(redirect(url_for('start')))
             if form.remember.data:
                 response.set_cookie('username', form.username.data)
                 response.set_cookie('password', form.password.data)

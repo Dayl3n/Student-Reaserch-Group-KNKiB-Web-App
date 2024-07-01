@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Panel Admina</title>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/stylelogin.css') }}">
+<script type="text/javascript" src="{{ url_for('static',filename='scripts/script.js')}}">
+
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="d-block" id="blok">
+    <h1>Admin Panel</h1>
+    <form method="POST" enctype="multipart/form-data" id="formu">
+    <select class="form-control"name="category" id="chosen-select">
+        <option value="">Wybierz</option>
+        <option value="{{url_for('posts.posts')}}">Posty</option>
+        <option value="{{url_for('tasks.tasksAdmin')}}">Zadania</option>
+    </select>
+        <div class="d-flex" id="content">
+        </div>
+    </form>
+</div>
+{% endblock %}
