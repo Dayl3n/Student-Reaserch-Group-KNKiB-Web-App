@@ -81,6 +81,10 @@ def start():
             return render_template('index.html',posts=posts, admin=False)
     return render_template('index.html',posts=posts, image1=image1)
 
+@app.route('/about')
+def test1():
+    return render_template('about.html')
+
 @login_manager.user_loader
 def load_user(user_id):   
     return User.query.get(int(user_id))
