@@ -42,9 +42,9 @@ def tasks():
         new_task = app.Task(title=form.title.data, description=form.description.data, deadline=form.deadline.data, user_id=current_user.id)
         app.db.session.add(new_task)
         app.db.session.commit()
-        return redirect(url_for('AdminPanel'))
+        return redirect(url_for('tasks'))
 
-    return render_template('tasks.html', form=form, tasks=tasks)
+    return render_template('usertasks.html', form=form, tasks=tasks)
 
 @tasks_bp.route('/tasks/update/<int:task_id>',methods=['GET','POST'])
 def updateTask(task_id):
