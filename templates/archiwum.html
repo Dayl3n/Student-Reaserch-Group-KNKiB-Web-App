@@ -2,11 +2,30 @@
 
 {%block head%}
     <title>KNKiB</title>
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/stylelogin.css') }}">
+    {%if posts.count() <4 %}
+        <link rel= "stylesheet" href= "{{ url_for('static',filename='styles/stylelogin.css') }}">
+    {%endif%}
 
 {%endblock%}
 
 {%block body%}
+
+    <div class="d-block" id="blok2">
+        {% for article_row in posts | batch(3) %}
+<div class="row">
+    {% for post in article_row %}
+        {%if post is not none%}
+        <div class="m-1" id="blok_post" >
+            <h3>{{post.title}}</h3>
+            <p>{{post.content}}</p>
+            <img src="{{ url_for('static', filename='images/' ~ post.image_name) }}" style="width: 33%;">
+        </div>
+        {%endif%}
+    {% endfor %}
+</div>
+{% endfor %}
+        
+    </div>
 
 
 {%endblock%}

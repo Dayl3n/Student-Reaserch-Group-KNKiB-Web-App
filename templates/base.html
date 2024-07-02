@@ -8,11 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
-  
-    {%block title%}
-    
-
-    
+   
     {%block head%}
 
     {%endblock%}
@@ -42,10 +38,10 @@
             <a class="nav-link active" href="{{url_for('start')}}">Aktualności</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">O nas</a>
+            <a class="nav-link" href="{{url_for('aboutus')}}">O nas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Archiwum</a>
+            <a class="nav-link" href="{{url_for('posts.Archiwum')}}">Archiwum</a>
           </li>
           {%if current_user.is_authenticated%}
           {%if admin%}
@@ -85,5 +81,15 @@
 {%endblock%}
 
 </div>
+
+<footer class="bg-body-tertiary text-center text-lg-start align-items-center justify-content-center">
+
+  <div class="text-center pt-3 pb-1" style="background-color: #ddd;">
+    
+    <p>Koło Naukowe Kryminalistyki i Bezpieczeństwa AGH</p>
+  </div>
+ 
+</footer>
 </body>
+
 </html>
