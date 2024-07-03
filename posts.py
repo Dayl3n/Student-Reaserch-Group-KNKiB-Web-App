@@ -53,21 +53,26 @@ def posts():
         return redirect(url_for('AdminPanel'))
     return render_template('AllPostsAdminView.html', form=form,posts=posts)
 
-@posts_bp.route('/UpdatePost', methods=['GET', 'POST'])
+@posts_bp.route('/UpdatePost/update/<int:post_id>', methods=['GET', 'POST'])
+@login_required
 @role_required('admin')
-def UpdatePost():
+def UpdatePost(post_id):
+    post = app.Post.query.get(post_id)
     form = UpdateForm()
     if form.validate_on_submit():
-        img = app.Img(img=form.image.data.read(), name=form.image.data.filename, mimetype=form.image.data.mimetype)
-        app.db.session.add(img)
-        app.db.session.commit()
-        post = app.Post.query.get(form.post_id.data)
+        image = form.image.data
+        if image and allowed_file(image.filename):
+            filename = secure_filename(image.filename)
+            image.save(os.path.join(app.app.config['UPLOAD_FOLDER'], filename))
+        else:
+            error = "Nieprawidłowe rozszerzenie pliku"
+            return render_template('UploadPost.html', form=form, error=error)
         post.title = form.title.data
         post.content = form.description.data
-        post.image_id = img.id
+        post.image_name = image.filename
         app.db.session.commit()
         return redirect(url_for('AdminPanel'))
-    return render_template('UpdatePost.html', form=form)
+    return render_template('UpdatePost.html', form=form, post=post)
 
 
 @posts_bp.route('/delete_post/<post_id>')

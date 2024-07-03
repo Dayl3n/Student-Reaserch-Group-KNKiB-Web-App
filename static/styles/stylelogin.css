@@ -34,12 +34,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-repeat: repeat-y;
+
 }
 
-body{
-    background-color: black !important;
-}
 
 @media all and (max-width: 1066px){
     #blok, #reg{
