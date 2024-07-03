@@ -42,11 +42,12 @@ def tasks():
         new_task = app.Task(title=form.title.data, description=form.description.data, deadline=form.deadline.data, user_id=current_user.id)
         app.db.session.add(new_task)
         app.db.session.commit()
-        return redirect(url_for('AdminPanel'))
+        return redirect(url_for('tasks'))
 
     return render_template('tasks.html', form=form, tasks=tasks)
 
 @tasks_bp.route('/tasks/update/<int:task_id>',methods=['GET','POST'])
+@login_required
 def updateTask(task_id):
     task = app.Task.query.get(task_id)
     if not task.user_id == current_user.id:
@@ -59,7 +60,7 @@ def updateTask(task_id):
             task.deadline = form.deadline.data
             app.db.session.commit()
             return redirect('/tasks')
-        return render_template('updateTask.html',form=form,task=task)
+        return render_template('UpdateTask.html',form=form,task=task)
     
 
 @tasks_bp.route('/delete_task/<task_id>')

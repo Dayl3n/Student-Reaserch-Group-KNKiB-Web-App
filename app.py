@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_login import LoginManager,login_required, UserMixin, login_user,logout_user, current_user
 from flask_sqlalchemy import SQLAlchemy
-import auth, tasks,posts
+import auth, tasks,posts, events
 from tasks import role_required
 
 
@@ -9,6 +9,8 @@ app = Flask(__name__, template_folder='templates')
 app.register_blueprint(auth.auth_bp)
 app.register_blueprint(tasks.tasks_bp)
 app.register_blueprint(posts.posts_bp)
+app.register_blueprint(events.events_bp)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///knkib.db'
 app.config['UPLOAD_FOLDER'] = 'static/images/'
 app.config['SECRET_KEY'] = 'MDbgI2k2YULy9C8SnJslH67IG5XE4iyY'
@@ -78,6 +80,11 @@ def start():
             return render_template('index.html',posts=posts, admin=False)
     return render_template('index.html',posts=posts)
 
+@app.route('/calendar')
+def calendar():
+    all_events = Event.query.all()
+    return render_template('Calendar.html', all_events=all_events)
+
 @app.route('/about')
 def aboutus():
     return render_template('about.html')
@@ -88,7 +95,7 @@ def load_user(user_id):
 
 @app.route('/AdminPanel', methods=['GET', 'POST'])
 def AdminPanel():
-    return render_template('AdminPanel.html')
+    return render_template('AdminPanel.html', admin=True)
 
 
 @app.route('/logout')

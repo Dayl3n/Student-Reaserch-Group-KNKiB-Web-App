@@ -21,7 +21,7 @@
             </td>
             <td>
                 <a href="{{ url_for('posts.delete_post', post_id=post.id) }}">Delete</a>
-                <a href="#">Edit</a>
+                <a href="{{ url_for('posts.UpdatePost', post_id=post.id) }}">Edit</a>
             </td>
         </tr>
         {% endfor %}

@@ -1,0 +1,54 @@
+<div class="d-block w-100">  
+    <table class = "table table-hover table-borderd">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Tytuł</th>
+                <th scope="col">Opis</th>
+                <th scope="col">Data</th>
+                <th scope="col">Uczestnicy</th>
+                <th scope="col">Opcje</th>
+            </tr>
+    </thead>
+    <tbody>
+            {%for event in events %}
+            <tr>
+                <td>
+                    {{event.title}}
+                </td>
+                <td>
+                    {{event.description}}
+                </td>
+                <td>
+                    {{event.date}} 
+                </td>
+                <td>
+                    {{event.members}}
+                </td>
+                <td>
+                    <a href="{{url_for('events.delete_event', event_id=event.id)}}">Delete</a>           
+                    <a href="{{url_for('events.updateEvent', event_id=event.id)}}">Edit</a>
+                </td>
+            </tr>
+            {%endfor%}        
+            <tr>         
+                {{ form.hidden_tag() }}
+                <td>
+                    {{ form.title(class="form-control") }}
+                </td>
+                <td>
+                    {{ form.description(class="form-control") }}
+                </td>
+                <td>
+                    {{form.date(class="form-control")}}
+                </td>
+                <td>
+                    -----
+                </td>
+                <td>
+                    {{ form.submit(class="btn btn-success") }}
+                </td>               
+            </tr>
+    </tbody>
+    </table>
+        
+</div>
