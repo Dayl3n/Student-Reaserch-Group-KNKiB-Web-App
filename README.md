@@ -27,3 +27,15 @@ Celem projektu jest stworzenie aplikacji internetowej dla Koła Naukowego Krymin
 •	Konta administratora może nadzorować działalność każdego członka. 
 •	Kalendarz ze zbliżającymi się wydarzeniami
 •	Formularz kontaktowy, dla firm i osób które chciałby nawiązać współpracę
+
+
+
+4. Efekt końcowy:
+•	Zrezygnowano z zagadek.
+•	Każdy zalogowany użytkownik może dopisać się do wydarzenia w kalendarzu.
+•	Użytkownicy mogą się logować, aby uzyskać dostęp do swojej listy zadań.
+•	Konta administratora może nadzorować działalność każdego członka. 
+•	Kalendarz ze zbliżającymi się wydarzeniami.
+•	Konto admina ma możliwość dodawania i edytowania postów w które pojawiają się w aktualnościach (4 ostatnio dodane posty), oraz w archiwum
+•	Konto admina ma możliwość dodawania i edytowania wydarzeń, może sprawdzić którzy użytkownicy biorą udział w jakim wydarzeniu.
+•	Admin ma dostęp do panelu admina w którym może tym wszystkim zarządzać
