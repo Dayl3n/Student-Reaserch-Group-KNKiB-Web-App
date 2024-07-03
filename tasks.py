@@ -50,8 +50,8 @@ def tasks():
 @login_required
 def updateTask(task_id):
     task = app.Task.query.get(task_id)
-    if not task.user_id == current_user.id:
-        return redirect(url_for('AdminPanel'))   
+    if not task.user_id == current_user.id and current_user.role != 'admin':
+        return redirect(url_for('tasks'))   
     else:
         form = UpdateForm()
         if form.validate_on_submit():
@@ -59,7 +59,11 @@ def updateTask(task_id):
             task.description = form.description.data
             task.deadline = form.deadline.data
             app.db.session.commit()
-            return redirect('/tasks')
+            if current_user.role == 'admin':
+                return redirect(url_for('AdminPanel'))
+            else:
+                return redirect(url_for('tasks'))
+            
         return render_template('UpdateTask.html',form=form,task=task)
     
 
@@ -68,7 +72,10 @@ def delete_task(task_id):
     task_to_delete = app.Task.query.get(task_id)
     app.db.session.delete(task_to_delete)
     app.db.session.commit()
-    return redirect(url_for('AdminPanel'))
+    if current_user.role == 'admin':
+        return redirect(url_for('AdminPanel'))
+    else:
+        return redirect(url_for('tasks'))
 
 @tasks_bp.route('/admin/tasks',methods=['GET','POST'])
 @role_required('admin')

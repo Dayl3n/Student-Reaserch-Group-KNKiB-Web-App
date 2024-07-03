@@ -34,6 +34,7 @@
                         <a href="{{url_for('tasks.updateTask', task_id=task.id)}}">Edit</a>
                     </td>
                 </tr>
+                <form method="POST">
                 {%endfor%}        
                 <tr>         
                     {{ form.hidden_tag() }}
@@ -50,6 +51,7 @@
                         {{ form.submit(class="btn btn-success") }}
                     </td>               
                 </tr>
+                </form>
     </tbody>
     </table>
         
