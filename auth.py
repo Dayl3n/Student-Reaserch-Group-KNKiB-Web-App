@@ -4,28 +4,27 @@ from flask_login import LoginManager, UserMixin, login_user, current_user
 from wtforms import Form, StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired,Length,Email
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_mail import Mail, Message
 import app
 
 
 auth_bp = Blueprint('auth', __name__, template_folder='templates')
 
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[Length(min=4, max=150)])
-    password = PasswordField('Password', validators=[])
-    remember = BooleanField('Remember Me')
-    submit = SubmitField('Login')
+    username = StringField('Nazwa użytkownika', validators=[Length(min=4, max=150)])
+    password = PasswordField('Hasło', validators=[])
+    remember = BooleanField('Zapamiętaj mnie')
+    submit = SubmitField('Zaloguj')
 
 
 class RegisterForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(min=4, max=150)])
+    username = StringField('Nazwa użytkownika', validators=[DataRequired(), Length(min=4, max=150)])
     mail = StringField('Mail',validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Register')
+    password = PasswordField('Hasło', validators=[DataRequired()])
+    submit = SubmitField('Rejestracja')
 
 class ForgotPasswordForm(FlaskForm):
     mail = StringField('Mail',validators=[DataRequired(), Email()])
-    submit = SubmitField('Reset password')
+    submit = SubmitField('Zmiana hasła')
 
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
@@ -38,8 +37,8 @@ def index():
         user = app.User.query.filter_by(username=form.username.data).first()
         if user and check_password_hash(user.password, form.password.data):
             login_user(user,remember=True)
+            response = make_response(redirect(url_for('start')))
             if form.remember.data:
-                response = make_response(redirect('task'))
                 response.set_cookie('username', form.username.data)
                 response.set_cookie('password', form.password.data)
             return response
@@ -64,15 +63,15 @@ def register_view():
             return redirect('login')
     return render_template('register.html',form=form, error_text=error)
 
-@auth_bp.route('/forgot_password', methods=['GET','POST'])
-def forgot_password():
-    error = " "
-    form=ForgotPasswordForm()
-    if form.validate_on_submit():
-        email = app.User.query.filter_by(email=form.mail.data).first()
-        if email:
-            msg = Message('Password reset', sender = '...', recipients = [form.mail.data])
-            msg.body = f'this is your new password: '
-        else:
-            error = 'Email does not exist'
-    return render_template('forgot_password.html',form=form, error_text=error)
+# @auth_bp.route('/forgot_password', methods=['GET','POST'])
+# def forgot_password():
+#     error = " "
+#     form=ForgotPasswordForm()
+#     if form.validate_on_submit():
+#         email = app.User.query.filter_by(email=form.mail.data).first()
+#         if email:
+#             msg = Message('Password reset', sender = '...', recipients = [form.mail.data])
+#             msg.body = f'this is your new password: '
+#         else:
+#             error = 'Email does not exist'
+#     return render_template('forgot_password.html',form=form, error_text=error)

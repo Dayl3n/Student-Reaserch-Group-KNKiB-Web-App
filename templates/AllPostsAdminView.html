@@ -1,0 +1,46 @@
+<table class="table table-hover table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Zdjęcie</th>
+            <th scope="col">Tytuł</th>
+            <th scope="col">Opis</th>
+            <th scope="col">Opcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <td class="col-3">
+                <img src="{{ url_for('static', filename='images/' ~ post.image_name) }}" style="width: 33%;">
+            </td>
+            <td class="col-3">
+                {{ post.title }}
+            </td>
+            <td class="col-3">
+                {{ post.content }}
+            </td>
+            <td>
+                <a href="{{ url_for('posts.delete_post', post_id=post.id) }}">Delete</a>
+                <a href="{{ url_for('posts.UpdatePost', post_id=post.id) }}">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <tr>
+                <td>
+                    {{ form.image(class="form-control") }}
+                </td>
+                <td>
+                    {{ form.title(class="form-control") }}
+                </td>
+                <td>
+                    {{ form.description(class="form-control") }}
+                </td>
+                <td>
+                    {{ form.submit(class="btn btn-success") }}
+                </td>
+            </tr>
+        </form>
+    </tbody>
+</table>

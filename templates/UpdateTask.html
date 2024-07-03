@@ -1,0 +1,44 @@
+{%extends "base.html"%}
+
+
+{%block head%}
+<title>Tasks</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/stylelogin.css') }}">
+{%endblock%}
+
+{%block body%}
+<div class="d-block" id="blok3">
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Tytuł</th>
+                <th scope="col">Opis</th>
+                <th scope="col">Deadline</th>
+                <th scope="col">Opcje</th>
+            </tr>
+    </thead>
+    <tbody>
+        <form action="",  method="POST">
+                {{ form.hidden_tag() }}
+                <tr>
+                    <td>           
+                        {{form.title(class="form-control",value = task.title)}} 
+                    </td>
+                    <td>
+                        {{form.description(class ="form-control", value = task.description) }}
+                        
+                    </td>
+                    <td>
+                        {{form.deadline(class="form-control", value=task.deadline)}}
+                    </td>
+                    <td>           
+                        {{ form.submit(class="btn btn-success") }}
+                    </td>
+                </tr>
+               
+        </form>    
+        
+    </tbody>
+    </table>
+</div>
+{%endblock%}

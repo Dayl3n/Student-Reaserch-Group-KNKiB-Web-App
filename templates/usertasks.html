@@ -1,0 +1,61 @@
+{%extends "base.html"%}
+
+{%block head%}
+    <title>KNKiB</title>  
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='styles/stylelogin.css') }}">
+{%endblock%}
+
+{%block body%}
+<div class="d-block w-100">  
+    <table class = "table table-hover table-borderd">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Tytuł</th>
+                <th scope="col">Opis</th>
+                <th scope="col">Deadline</th>
+                <th scope="col">Opcje</th>
+            </tr>
+    </thead>
+    <tbody>
+               {%for task in tasks %}
+                <tr>
+                    <td>
+                        {{task.title}}
+                    </td>
+                    <td>
+                        {{task.description}}
+                    </td>
+                    <td>
+                        {{task.deadline}} 
+                    </td>
+                    <td>
+                        <a href="{{url_for('tasks.delete_task',task_id=task.id)}}">Delete</a>
+                        
+                        <a href="{{url_for('tasks.updateTask', task_id=task.id)}}">Edit</a>
+                    </td>
+                </tr>
+                <form method="POST">
+                {%endfor%}        
+                <tr>         
+                    {{ form.hidden_tag() }}
+                    <td>
+                        {{ form.title(class="form-control") }}
+                    </td>
+                    <td>
+                        {{ form.description(class="form-control") }}
+                    </td>
+                    <td>
+                        {{form.deadline(class="form-control")}}
+                    </td>
+                    <td>
+                        {{ form.submit(class="btn btn-success") }}
+                    </td>               
+                </tr>
+                </form>
+    </tbody>
+    </table>
+        
+</div>
+
+
+{%endblock%}

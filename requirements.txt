@@ -1,0 +1,1 @@
+flask, flask-wtf, flask-login, flask-sqlalchemy, email_validator

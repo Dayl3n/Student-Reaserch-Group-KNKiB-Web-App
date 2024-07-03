@@ -1,0 +1,39 @@
+{%extends "base.html"%}
+{%block head%}
+    <title>KNKiB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/stylelogin.css') }}">
+{%endblock%}
+
+{%block body%}
+<div class="d-block" id="blok3">  
+    <table class = "table table-hover table-borderd">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Obraz</th>
+                <th scope="col">Tytuł</th>
+                <th scope="col">Content</th>
+                <th scope="col">Zatwierdź</th>
+            </tr>
+    </thead>
+    <tbody>
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <tr>
+                <td>
+                    {{ form.image(class="form-control") }}
+                </td>
+                <td>
+                    {{ form.title(class="form-control",  value = post.title) }}
+                </td>
+                <td>
+                    {{ form.description(class="form-control", value = post.content) }}
+                </td>
+                <td>
+                    {{ form.submit(class="btn btn-success") }}
+                </td>
+            </tr>
+        </form>       
+    </tbody>
+    </table>
+</div>
+{%endblock%}
