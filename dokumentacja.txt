@@ -1,0 +1,38 @@
+Opis ogólny
+Aplikacja internetowa służy do zarządzania Kołem Naukowym Kryminalistyki i Bezpieczeństwa (KNKiB). Oferuje funkcje takie jak zarządzanie użytkownikami, wydarzeniami, zadaniami oraz postami. Aplikacja pozwala administratorom na zarządzanie treściami i użytkownikami, a zwykłym użytkownikom na przeglądanie i interakcję z treściami. 
+Konto z uprawnieniami admina dla celów demonstracyjnych:
+Login:admin
+hasło:admin
+
+Użyte biblioteki:
+flask: Flask, render_template, Blueprint, request, jsonify, redirect, url_for, render_template, make_response
+flask_login: LoginManager, login_required, UserMixin, login_user, logout_user, current_user
+flask_sqlalchemy: SQLAlchemy
+flask_wtf: FlaskForm
+wtforms: StringField, SubmitField
+flask_wtf.file: FileField, FileRequired
+werkzeug.security: generate_password_hash, check_password_hash
+app
+
+Trasy:
+/: Strona główna
+/calendar: Kalendarz wydarzeń
+/about: Strona "O nas"
+/AdminPanel: Panel administratora
+/logout: Wylogowanie
+/update_user/<int:user_id>: Aktualizacja użytkownika
+/task: Zarządzanie zadaniami
+/login: Logowanie
+/register: Rejestracja
+/events/update/<int:event_id>: Aktualizacja wydarzenia
+/delete_event/<event_id>: Usuwanie wydarzenia
+/admin/events: Zarządzanie wydarzeniami przez administratora
+/singUp/<event_id>: Zapisywanie się na wydarzenie
+/posts: Zarządzanie postami przez administratora
+/UpdatePost/update/<int:post_id>: Aktualizacja postu
+/delete_post/<post_id>: Usuwanie postu
+/archiwum: Archiwum postów
+/tasks: Zarządzanie zadaniami przez użytkowników
+/tasks/update/<int:task_id>: Aktualizacja zadania
+/delete_task/<task_id>: Usuwanie zadania
+/admin/tasks: Zarządzanie zadaniami przez administratora
