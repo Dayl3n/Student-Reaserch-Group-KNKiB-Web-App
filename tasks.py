@@ -44,7 +44,7 @@ def tasks():
         app.db.session.commit()
         return redirect(url_for('tasks'))
 
-    return render_template('tasks.html', form=form, tasks=tasks)
+    return render_template('usertasks.html', form=form, tasks=tasks)
 
 @tasks_bp.route('/tasks/update/<int:task_id>',methods=['GET','POST'])
 @login_required
