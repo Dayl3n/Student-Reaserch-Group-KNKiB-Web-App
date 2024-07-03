@@ -94,6 +94,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 @app.route('/AdminPanel', methods=['GET', 'POST'])
+@role_required('admin')
 def AdminPanel():
     return render_template('AdminPanel.html', admin=True)
 
